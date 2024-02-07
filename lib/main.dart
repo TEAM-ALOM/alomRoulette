@@ -13,9 +13,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: mainScreen(),
+      home: const mainScreen(),
       theme: ThemeData(
-          appBarTheme: AppBarTheme(
+          appBarTheme: const AppBarTheme(
             elevation: 0,
             backgroundColor: Colors.blue,
             foregroundColor: Color.fromRGBO(172, 227, 251, 1),
@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
               color: Color.fromRGBO(172, 227, 251, 1),
             ),
           ),
-          primaryColor: Color.fromRGBO(172, 227, 251, 1),
+          primaryColor: const Color.fromRGBO(172, 227, 251, 1),
           scaffoldBackgroundColor: Colors.black),
     );
   }

@@ -1,6 +1,6 @@
 # sedong_mbti
 
-A new Flutter project.
+아롬 세동제 룰렛 어플입니다.
 
 ## Getting Started
 

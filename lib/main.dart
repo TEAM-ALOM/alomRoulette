@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:sedong_mbti/const/sizes.dart';
+import 'package:sedong_mbti/mainScreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,7 +13,20 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: mainScreen,
+      home: mainScreen(),
+      theme: ThemeData(
+          appBarTheme: AppBarTheme(
+            elevation: 0,
+            backgroundColor: Colors.blue,
+            foregroundColor: Color.fromRGBO(172, 227, 251, 1),
+            titleTextStyle: TextStyle(
+              fontSize: Sizes.size14 + Sizes.size7,
+              fontWeight: FontWeight.bold,
+              color: Color.fromRGBO(172, 227, 251, 1),
+            ),
+          ),
+          primaryColor: Color.fromRGBO(172, 227, 251, 1),
+          scaffoldBackgroundColor: Colors.black),
     );
   }
 }

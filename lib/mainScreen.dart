@@ -8,10 +8,9 @@ class mainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        toolbarHeight: 0,
         // backgroundColor: Colors.black,
-        title: Text(
-          'Alom 세동제 홍보 어플',
-        ),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(

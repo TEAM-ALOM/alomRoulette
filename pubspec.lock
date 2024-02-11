@@ -115,6 +115,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.5.0"
+  material_symbols_icons:
+    dependency: "direct main"
+    description:
+      name: material_symbols_icons
+      sha256: fee941060cb717c74d370dbcb7a735f224d1e93d705dc5b552ee40e0697d5691
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.2719.1"
   meta:
     dependency: transitive
     description:
@@ -210,4 +218,4 @@ packages:
     version: "0.3.0"
 sdks:
   dart: ">=3.2.1 <4.0.0"
-  flutter: ">=1.17.0"
+  flutter: ">=3.7.0"

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:sedong_mbti/Screen/mbti.dart';
 import 'package:sedong_mbti/const/sizes.dart';
-import 'package:sedong_mbti/mainScreen.dart';
+import 'package:sedong_mbti/Screen/mainScreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: const mainScreen(),
+      home: const mbtiScreen(),
       theme: ThemeData(
           appBarTheme: const AppBarTheme(
             elevation: 0,

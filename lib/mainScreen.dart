@@ -1,6 +1,7 @@
 import 'package:animated_notch_bottom_bar/animated_notch_bottom_bar/animated_notch_bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:sedong_mbti/const/sizes.dart';
+import 'package:sedong_mbti/view/roulette.dart';
 
 class mainScreen extends StatefulWidget {
   const mainScreen({super.key});
@@ -27,7 +28,7 @@ class _mainScreenState extends State<mainScreen> {
   /// widget list
   final List<Widget> bottomBarPages = [
     const Placeholder(),
-    const Placeholder(),
+    const RouletteScreen(),
     const Placeholder(),
     const Placeholder(),
   ];
@@ -45,16 +46,16 @@ class _mainScreenState extends State<mainScreen> {
               kBottomRadius: 28.0,
               // notchShader: const SweepGradient(
               //   startAngle: 0,
-              //   endAngle: pi / 2,
+              //   endAngle: 3.14 / 2,
               //   colors: [Colors.red, Colors.green, Colors.orange],
               //   tileMode: TileMode.mirror,
               // ).createShader(Rect.fromCircle(center: Offset.zero, radius: 8.0)),
-              notchColor: Colors.black87,
+              notchColor: const Color.fromRGBO(156, 229, 253, 100),
 
               /// restart app if you change removeMargins
               removeMargins: false,
               bottomBarWidth: 500,
-              durationInMilliSeconds: 300,
+              durationInMilliSeconds: 100,
               bottomBarItems: const [
                 BottomBarItem(
                   inActiveItem: Icon(
@@ -89,17 +90,6 @@ class _mainScreenState extends State<mainScreen> {
                   ),
                   itemLabel: 'Page 4',
                 ),
-                BottomBarItem(
-                  inActiveItem: Icon(
-                    Icons.person,
-                    color: Colors.blueGrey,
-                  ),
-                  activeItem: Icon(
-                    Icons.person,
-                    color: Colors.yellow,
-                  ),
-                  itemLabel: 'Page 5',
-                ),
               ],
               onTap: (index) {
                 /// perform action on tab change and to update pages you can update pages without pages
@@ -110,7 +100,7 @@ class _mainScreenState extends State<mainScreen> {
             )
           : null,
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        // backgroundColor: Colors.blue,
         toolbarHeight: 0,
         // backgroundColor: Colors.black,
       ),

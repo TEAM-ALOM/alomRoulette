@@ -1,7 +1,9 @@
 import 'package:animated_notch_bottom_bar/animated_notch_bottom_bar/animated_notch_bottom_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:material_symbols_icons/symbols.dart';
 import 'package:sedong_mbti/const/sizes.dart';
+import 'package:sedong_mbti/view/devel_mbti.dart';
 import 'package:sedong_mbti/view/roulette.dart';
 
 class mainScreen extends StatefulWidget {
@@ -30,8 +32,7 @@ class _mainScreenState extends State<mainScreen> {
   final List<Widget> bottomBarPages = [
     const Placeholder(),
     const RouletteScreen(),
-    const Placeholder(),
-    const Placeholder(),
+    const MbtiScreen(),
   ];
 
   @override
@@ -39,21 +40,11 @@ class _mainScreenState extends State<mainScreen> {
     return Scaffold(
       bottomNavigationBar: (bottomBarPages.length <= maxCount)
           ? AnimatedNotchBottomBar(
-              /// Provide NotchBottomBarController
               notchBottomBarController: _controller,
               color: Colors.white,
               showLabel: false,
               shadowElevation: 5,
               kBottomRadius: 28.0,
-              // notchShader: const SweepGradient(
-              //   startAngle: 0,
-              //   endAngle: 3.14 / 2,
-              //   colors: [Colors.red, Colors.green, Colors.orange],
-              //   tileMode: TileMode.mirror,
-              // ).createShader(Rect.fromCircle(center: Offset.zero, radius: 8.0)),
-              // notchColor: const Color.fromRGBO(156, 229, 253, 100),
-
-              /// restart app if you change removeMargins
               removeMargins: false,
               bottomBarWidth: 500,
               durationInMilliSeconds: 100,
@@ -81,13 +72,13 @@ class _mainScreenState extends State<mainScreen> {
                   itemLabel: 'Page 2',
                 ),
                 BottomBarItem(
-                  inActiveItem: Icon(
-                    Icons.settings,
-                    color: Colors.blueGrey,
+                  inActiveItem: FaIcon(
+                    FontAwesomeIcons.bookOpen,
+                    color: Colors.grey,
                   ),
-                  activeItem: Icon(
-                    Icons.settings,
-                    color: Colors.pink,
+                  activeItem: FaIcon(
+                    FontAwesomeIcons.bookOpen,
+                    color: Colors.blueAccent,
                   ),
                   itemLabel: 'Page 4',
                 ),
@@ -100,16 +91,14 @@ class _mainScreenState extends State<mainScreen> {
               kIconSize: 24.0,
             )
           : null,
-      appBar: AppBar(
-        // backgroundColor: Colors.blue,
-        toolbarHeight: 0,
-        // backgroundColor: Colors.black,
-      ),
+      // appBar: AppBar(),
       body: PageView(
         controller: _pageController,
         physics: const NeverScrollableScrollPhysics(),
         children: List.generate(
-            bottomBarPages.length, (index) => bottomBarPages[index]),
+          bottomBarPages.length,
+          (index) => bottomBarPages[index],
+        ),
       ),
       extendBody: true,
     );

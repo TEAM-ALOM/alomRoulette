@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sedong_mbti/const/sizes.dart';
 
-class Questions extends StatelessWidget {
+class Questions extends StatefulWidget {
   var text__;
 
   Questions({
@@ -9,6 +9,11 @@ class Questions extends StatelessWidget {
     required this.text__,
   });
 
+  @override
+  State<Questions> createState() => _QuestionsState();
+}
+
+class _QuestionsState extends State<Questions> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -24,7 +29,7 @@ class Questions extends StatelessWidget {
           horizontal: Sizes.size16,
         ),
         child: Text(
-          this.text__,
+          this.widget.text__,
           style: const TextStyle(
             fontSize: Sizes.size28,
           ),

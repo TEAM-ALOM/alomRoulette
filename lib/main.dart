@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
       home: const mainScreen(),
       theme: ThemeData(
         appBarTheme: const AppBarTheme(
+          toolbarHeight: 0,
           elevation: 0,
           backgroundColor: Colors.blue,
           foregroundColor: Color.fromRGBO(172, 227, 251, 1),

@@ -1,13 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:page_transition/page_transition.dart';
+// import 'package:page_transition/page_transition.dart';
 import 'package:sedong_mbti/const/sizes.dart';
 import 'package:sedong_mbti/mbtiScreen/Screen2.dart';
-import 'package:sedong_mbti/mbtiScreen/mbti_Button/QustionButton.dart';
+// import 'package:sedong_mbti/mbtiScreen/Screen2.dart';
+import 'package:sedong_mbti/ments/QustionMent.dart';
+import 'package:sedong_mbti/ments/ment.dart';
 
-import 'package:sedong_mbti/mbtiScreen/mbti_Button/QustionsAnswer.dart';
-
-String answer1 = '11';
-String answer2 = '22';
+int FirstIdx = 0, secIdx = 1;
+int Questidx = 0, Ans1Idx = 0, Ans2Idx = 1;
+String answer1 = AnsMents[FirstIdx];
+String answer2 = AnsMents[secIdx];
+String __QusetMent = QusetMent[Questidx];
+bool access = true;
+bool Design = false;
+bool LanguegeC = true;
+bool Front = false;
+bool back_ = false;
 
 class MbtiScreen extends StatefulWidget {
   const MbtiScreen({
@@ -17,17 +25,38 @@ class MbtiScreen extends StatefulWidget {
   State<MbtiScreen> createState() => _MbtiScreenState();
 }
 
-class _MbtiScreenState extends State<MbtiScreen>
-    with SingleTickerProviderStateMixin {
-  double a = 0;
-  late AnimationController _controller;
-  // ignore: unused_field
-  late Animation<double> _animation;
+class _MbtiScreenState extends State<MbtiScreen> {
+  NextSet() {
+    if (Design == false && LanguegeC == false) {
+      Questidx++;
+      Ans1Idx += 2;
+      Ans2Idx += 2;
+    } else if (LanguegeC == true) {
+    } else if (Design == true) {}
+    answer1 = AnsMents[Ans1Idx];
+    answer2 = AnsMents[Ans2Idx];
+    __QusetMent = QusetMent[Questidx];
+    setState(() {});
+  }
 
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
+  ResetState() {
+    Ans1Idx = 0;
+    Ans2Idx = 1;
+    Questidx = 0;
+    answer1 = AnsMents[FirstIdx];
+    answer2 = AnsMents[secIdx];
+    __QusetMent = QusetMent[Questidx];
+    setState(() {});
+  }
+
+  BeforeState() {
+    Ans1Idx >= 2 ? Ans1Idx -= 2 : Ans1Idx = 0;
+    Ans2Idx >= 2 ? Ans2Idx -= 2 : Ans2Idx = 1;
+    Questidx == 0 ? Questidx = 0 : Questidx -= 1;
+    answer1 = AnsMents[Ans1Idx];
+    answer2 = AnsMents[Ans2Idx];
+    __QusetMent = QusetMent[Questidx];
+    setState(() {});
   }
 
   @override
@@ -50,11 +79,22 @@ class _MbtiScreenState extends State<MbtiScreen>
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text(
-                    '개발하실?',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: Sizes.size28,
+                  Container(
+                    width: QusetMent[Questidx].length > 17 ? 340 : null,
+                    child: Flexible(
+                      child: RichText(
+                        strutStyle: const StrutStyle(
+                          fontSize: Sizes.size16,
+                        ),
+                        maxLines: 5,
+                        text: TextSpan(
+                          text: QusetMent[Questidx],
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: Sizes.size28,
+                          ),
+                        ),
+                      ),
                     ),
                   ),
                   const SizedBox(
@@ -62,14 +102,8 @@ class _MbtiScreenState extends State<MbtiScreen>
                   ),
                   GestureDetector(
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        PageTransition(
-                          child: const Screen2(),
-                          type: PageTransitionType.fade,
-                          duration: const Duration(milliseconds: 500),
-                        ),
-                      );
+                      if (Ans1Idx == 4) Front = true;
+                      NextSet();
                     },
                     child: Container(
                       decoration: const BoxDecoration(
@@ -97,12 +131,17 @@ class _MbtiScreenState extends State<MbtiScreen>
                   ),
                   GestureDetector(
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => Screen2(),
-                        ),
-                      );
+                      if (Ans2Idx == 1) {
+                        Design = true;
+                        setState(() {});
+                      } else if (Ans2Idx == 3) {
+                        LanguegeC = true;
+                        setState(() {});
+                      } else if (Ans2Idx == 5) {
+                        back_ = true;
+                        setState(() {});
+                      }
+                      NextSet();
                     },
                     child: Container(
                       decoration: const BoxDecoration(
@@ -131,20 +170,25 @@ class _MbtiScreenState extends State<MbtiScreen>
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      Container(
-                        width: 80,
-                        decoration: const BoxDecoration(
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(12),
+                      GestureDetector(
+                        onTap: () {
+                          BeforeState();
+                        },
+                        child: Container(
+                          width: 80,
+                          decoration: const BoxDecoration(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(12),
+                            ),
+                            color: Colors.grey,
                           ),
-                          color: Colors.grey,
-                        ),
-                        child: const Padding(
-                          padding: EdgeInsets.symmetric(
-                            vertical: 8,
-                            horizontal: 12,
+                          child: const Padding(
+                            padding: EdgeInsets.symmetric(
+                              vertical: 8,
+                              horizontal: 12,
+                            ),
+                            child: Text('이전 질문'),
                           ),
-                          child: Text('이전 질문'),
                         ),
                       ),
                       const SizedBox(
@@ -160,9 +204,11 @@ class _MbtiScreenState extends State<MbtiScreen>
                         ),
                         child: GestureDetector(
                           onTap: () {
-                            ResetState();
-                            print(answer1);
-                            setState(() {});
+                            setState(
+                              () {
+                                ResetState();
+                              },
+                            );
                           },
                           child: Padding(
                             padding: const EdgeInsets.symmetric(
@@ -188,7 +234,10 @@ class _MbtiScreenState extends State<MbtiScreen>
   }
 }
 
-ResetState() {
-  answer1 = 'asdf';
-  answer2 = 'qwer';
+Future<void> ReverseAccess() async {
+  await Future.delayed(
+    Duration(seconds: 2),
+  );
+  access = !access;
+  print(access);
 }

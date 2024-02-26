@@ -10,8 +10,8 @@ String answer1 = qusestionAnswerString[FirstIdx];
 String answer2 = qusestionAnswerString[secIdx];
 String __QusetMent = questionString[Questidx];
 bool access = true;
-bool Design = false;
-bool LanguegeC = true;
+bool Design = true;
+bool LanguegeC = false;
 bool Front = false;
 bool back_ = false;
 

@@ -3,10 +3,7 @@ import 'package:sedong_mbti/const/sizes.dart';
 import 'package:sedong_mbti/view/mbti/mbti_screen.dart';
 
 class MbtiResultScreen extends StatefulWidget {
-  const MbtiResultScreen({
-    super.key,
-    // ignore: non_constant_identifier_names
-  });
+  const MbtiResultScreen({super.key});
 
   @override
   State<MbtiResultScreen> createState() => _MbtiResultScreenState();
@@ -23,18 +20,13 @@ class _MbtiResultScreenState extends State<MbtiResultScreen> {
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              GestureDetector(
-                onTap: () {
-                  print(LanguegeC);
-                },
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(15),
-                  child: const SizedBox(
-                    height: 300,
-                    child: Image(
-                      image:
-                          AssetImage("assets/images/adobe-express-qr-code.png"),
-                    ),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(15),
+                child: const SizedBox(
+                  height: 300,
+                  child: Image(
+                    image:
+                        AssetImage("assets/images/adobe-express-qr-code.png"),
                   ),
                 ),
               ),

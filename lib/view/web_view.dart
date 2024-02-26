@@ -18,7 +18,7 @@ class NotionWebView extends StatefulWidget {
 class _NotionWebViewState extends State<NotionWebView> {
   late final WebViewController _controller;
   bool isLoading = true;
-
+  bool isMounted = true;
   @override
   void initState() {
     super.initState();
@@ -50,9 +50,11 @@ class _NotionWebViewState extends State<NotionWebView> {
             debugPrint('Page started loading: $url');
           },
           onPageFinished: (String url) {
-            setState(() {
-              isLoading = false;
-            });
+            if (mounted) {
+              setState(() {
+                isLoading = false;
+              });
+            }
             debugPrint('Page finished loading: $url');
           },
           onWebResourceError: (WebResourceError error) {
@@ -63,14 +65,6 @@ Page resource error:
   errorType: ${error.errorType}
   isForMainFrame: ${error.isForMainFrame}
           ''');
-          },
-          onNavigationRequest: (NavigationRequest request) {
-            if (request.url.startsWith('https://www.youtube.com/')) {
-              debugPrint('blocking navigation to ${request.url}');
-              return NavigationDecision.prevent;
-            }
-            debugPrint('allowing navigation to ${request.url}');
-            return NavigationDecision.navigate;
           },
           onUrlChange: (UrlChange change) {
             debugPrint('url change to ${change.url}');
@@ -112,5 +106,11 @@ Page resource error:
             )
           : WebViewWidget(controller: _controller),
     );
+  }
+
+  @override
+  void dispose() {
+    isMounted = false;
+    super.dispose();
   }
 }

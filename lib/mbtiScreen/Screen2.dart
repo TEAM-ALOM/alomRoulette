@@ -42,12 +42,13 @@ class _Screen2State extends State<Screen2> {
                 height: 70,
               ),
               LanguegeC == true
-                  ? LocalColumn2('C언어부터 차근차근 시작해보는 것은 어떨까요?')
+                  ? twoLinedLocalColumn('C언어부터 차근차근 시작해보는 것은 어떨까요?')
                   : const SizedBox(
                       height: 0,
                     ),
               Design == true
-                  ? LocalColumn1('UI와 UX를 직접 구현해보고 싶으신 당신!', '디자인 팀을 추천드립니다!')
+                  ? oneLinedLocalColumn(
+                      'UI와 UX를 직접 구현해보고 싶으신 당신!', '디자인 팀을 추천드립니다!')
                   : const SizedBox(
                       height: 0,
                     )
@@ -58,18 +59,19 @@ class _Screen2State extends State<Screen2> {
     );
   }
 
-  Column LocalColumn1(String asdf, String qwer) {
+  Column oneLinedLocalColumn(String firstString, String secondString) {
     return Column(
       children: [
         Text(
-          asdf,
+          firstString,
           style: const TextStyle(
             fontSize: Sizes.size16,
+            fontWeight: FontWeight.bold,
             color: Colors.white,
           ),
         ),
         Text(
-          qwer,
+          secondString,
           style: const TextStyle(
             fontSize: Sizes.size16,
             color: Colors.white,
@@ -79,13 +81,14 @@ class _Screen2State extends State<Screen2> {
     );
   }
 
-  Column LocalColumn2(String asdf) {
+  Column twoLinedLocalColumn(String firstString) {
     return Column(
       children: [
         Text(
-          asdf,
+          firstString,
           style: const TextStyle(
             fontSize: Sizes.size16,
+            fontWeight: FontWeight.bold,
             color: Colors.white,
           ),
         ),

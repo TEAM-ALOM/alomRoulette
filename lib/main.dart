@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sedong_mbti/const/sizes.dart';
-import 'package:sedong_mbti/main_screen.dart';
+import 'package:sedong_mbti/bottom_bar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: const mainScreen(),
+      home: const CustomBottomBar(),
       theme: ThemeData(
         appBarTheme: const AppBarTheme(
           toolbarHeight: 0,

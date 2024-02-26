@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:sedong_mbti/const/sizes.dart';
 import 'package:sedong_mbti/view/mbti/mbti_screen.dart';
 
-class Screen2 extends StatefulWidget {
-  const Screen2({
+class MbtiResultScreen extends StatefulWidget {
+  const MbtiResultScreen({
     super.key,
     // ignore: non_constant_identifier_names
   });
 
   @override
-  State<Screen2> createState() => _Screen2State();
+  State<MbtiResultScreen> createState() => _MbtiResultScreenState();
 }
 
-class _Screen2State extends State<Screen2> {
+class _MbtiResultScreenState extends State<MbtiResultScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

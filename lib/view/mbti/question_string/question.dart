@@ -1,4 +1,4 @@
-final List<String> QusetMent = [
+final List<String> questionString = [
   '개발하실래요?',
   '프로그래밍 언어를 아세요?',
   '눈에 보이는 걸 개발 하실래요?',

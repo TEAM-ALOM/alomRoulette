@@ -107,6 +107,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.0"
+  loading_animation_widget:
+    dependency: "direct main"
+    description:
+      name: loading_animation_widget
+      sha256: "1901682600273a966c34cf44a85fc5355da92a8d08a8a43c11adc4e471993e3a"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.2.0+4"
   matcher:
     dependency: transitive
     description:
@@ -249,7 +257,7 @@ packages:
     source: hosted
     version: "4.7.0"
   webview_flutter_android:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: webview_flutter_android
       sha256: "3e5f4e9d818086b0d01a66fb1ff9cc72ab0cc58c71980e3d3661c5685ea0efb0"
@@ -265,7 +273,7 @@ packages:
     source: hosted
     version: "2.10.0"
   webview_flutter_wkwebview:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: webview_flutter_wkwebview
       sha256: "9bf168bccdf179ce90450b5f37e36fe263f591c9338828d6bf09b6f8d0f57f86"

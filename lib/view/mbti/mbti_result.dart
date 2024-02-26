@@ -21,7 +21,7 @@ class _MbtiResultScreenState extends State<MbtiResultScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ClipRRect(
-                borderRadius: BorderRadius.circular(15),
+                borderRadius: BorderRadius.circular(25),
                 child: const SizedBox(
                   height: 300,
                   child: Image(
@@ -40,10 +40,25 @@ class _MbtiResultScreenState extends State<MbtiResultScreen> {
                     ),
               Design == true
                   ? oneLinedLocalColumn(
-                      'UI와 UX를 직접 구현해보고 싶으신 당신!', '디자인 팀을 추천드립니다!')
+                      'UI와 UX를 직접 구현해보고 싶으신 당신!', '그런 당신에게 디자인 팀을 추천드립니다!')
                   : const SizedBox(
                       height: 0,
-                    )
+                    ),
+              const SizedBox(
+                height: 30,
+              ),
+              ElevatedButton.icon(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blue,
+                  foregroundColor: Colors.white,
+                  textStyle: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                onPressed: () => {},
+                icon: const Icon(Icons.refresh_sharp),
+                label: const Text("다시하기"),
+              ),
             ],
           ),
         ],

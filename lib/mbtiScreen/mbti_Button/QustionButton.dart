@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:sedong_mbti/const/sizes.dart';
 
 class Questions extends StatefulWidget {
-  var text__;
+  final String question;
 
-  Questions({
+  const Questions({
     super.key,
-    required this.text__,
+    required this.question,
   });
 
   @override
@@ -29,7 +29,7 @@ class _QuestionsState extends State<Questions> {
           horizontal: Sizes.size16,
         ),
         child: Text(
-          this.widget.text__,
+          widget.question,
           style: const TextStyle(
             fontSize: Sizes.size28,
           ),

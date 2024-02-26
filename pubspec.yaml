@@ -102,6 +102,7 @@ flutter:
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
   assets:
+    - assets/images/adobe-express-qr-code.png
     - assets/images/wheel-6-300.png
     - assets/images/roulette-8-300.png
     - assets/images/roulette-center-300.png

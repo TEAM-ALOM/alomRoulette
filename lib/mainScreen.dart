@@ -4,7 +4,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:material_symbols_icons/symbols.dart';
 import 'package:sedong_mbti/const/sizes.dart';
 import 'package:sedong_mbti/mbtiScreen/Screen2.dart';
-import 'package:sedong_mbti/mbtiScreen/devel_mbti.dart';
 import 'package:sedong_mbti/view/roulette.dart';
 
 class mainScreen extends StatefulWidget {
@@ -33,7 +32,7 @@ class _mainScreenState extends State<mainScreen> {
   final List<Widget> bottomBarPages = [
     const Placeholder(),
     const RouletteScreen(),
-    Screen2(),
+    const Screen2(),
   ];
 
   @override

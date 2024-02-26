@@ -27,13 +27,14 @@ class _Screen2State extends State<Screen2> {
                 onTap: () {
                   print(LanguegeC);
                 },
-                child: Container(
-                  width: 250,
-                  height: 250,
-                  color: Colors.green,
-                  child: // QR이미지임? 아니면 어케넣노? ㅋㅋ
-                      const Text(
-                    'QR코드만들어줘 ㅅㅂ',
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(15),
+                  child: const SizedBox(
+                    height: 300,
+                    child: Image(
+                      image:
+                          AssetImage("assets/images/adobe-express-qr-code.png"),
+                    ),
                   ),
                 ),
               ),
@@ -41,7 +42,7 @@ class _Screen2State extends State<Screen2> {
                 height: 70,
               ),
               LanguegeC == true
-                  ? LocalColumn2('C나 하셈 븅신 ㅋㅋ')
+                  ? LocalColumn2('C언어부터 차근차근 시작해보는 것은 어떨까요?')
                   : const SizedBox(
                       height: 0,
                     ),

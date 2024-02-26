@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 // import 'package:page_transition/page_transition.dart';
 import 'package:sedong_mbti/const/sizes.dart';
-import 'package:sedong_mbti/mbtiScreen/Screen2.dart';
-// import 'package:sedong_mbti/mbtiScreen/Screen2.dart';
 import 'package:sedong_mbti/ments/QustionMent.dart';
 import 'package:sedong_mbti/ments/ment.dart';
 
@@ -79,7 +77,7 @@ class _MbtiScreenState extends State<MbtiScreen> {
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Container(
+                  SizedBox(
                     width: QusetMent[Questidx].length > 17 ? 340 : null,
                     child: Flexible(
                       child: RichText(
@@ -236,7 +234,7 @@ class _MbtiScreenState extends State<MbtiScreen> {
 
 Future<void> ReverseAccess() async {
   await Future.delayed(
-    Duration(seconds: 2),
+    const Duration(seconds: 2),
   );
   access = !access;
   print(access);

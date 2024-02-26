@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sedong_mbti/const/sizes.dart';
-import 'package:sedong_mbti/mainScreen.dart';
+import 'package:sedong_mbti/main_screen.dart';
 
 void main() {
   runApp(const MyApp());

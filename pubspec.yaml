@@ -42,6 +42,7 @@ dependencies:
   material_symbols_icons: ^4.2719.1
   font_awesome_flutter: ^10.7.0
   page_transition: ^2.1.0
+  webview_flutter: ^4.7.0
 
 
 

@@ -6,9 +6,9 @@ import 'package:sedong_mbti/view/mbti/question_string/question_answer.dart';
 
 int FirstIdx = 0, secIdx = 1;
 int Questidx = 0, Ans1Idx = 0, Ans2Idx = 1;
-String answer1 = qusestionAnswers[FirstIdx];
-String answer2 = qusestionAnswers[secIdx];
-String __QusetMent = QusetMent[Questidx];
+String answer1 = qusestionAnswerString[FirstIdx];
+String answer2 = qusestionAnswerString[secIdx];
+String __QusetMent = questionString[Questidx];
 bool access = true;
 bool Design = false;
 bool LanguegeC = true;
@@ -31,9 +31,9 @@ class _MbtiScreenState extends State<MbtiScreen> {
       Ans2Idx += 2;
     } else if (LanguegeC == true) {
     } else if (Design == true) {}
-    answer1 = qusestionAnswers[Ans1Idx];
-    answer2 = qusestionAnswers[Ans2Idx];
-    __QusetMent = QusetMent[Questidx];
+    answer1 = qusestionAnswerString[Ans1Idx];
+    answer2 = qusestionAnswerString[Ans2Idx];
+    __QusetMent = questionString[Questidx];
     setState(() {});
   }
 
@@ -41,9 +41,9 @@ class _MbtiScreenState extends State<MbtiScreen> {
     Ans1Idx = 0;
     Ans2Idx = 1;
     Questidx = 0;
-    answer1 = qusestionAnswers[FirstIdx];
-    answer2 = qusestionAnswers[secIdx];
-    __QusetMent = QusetMent[Questidx];
+    answer1 = qusestionAnswerString[FirstIdx];
+    answer2 = qusestionAnswerString[secIdx];
+    __QusetMent = questionString[Questidx];
     setState(() {});
   }
 
@@ -51,9 +51,9 @@ class _MbtiScreenState extends State<MbtiScreen> {
     Ans1Idx >= 2 ? Ans1Idx -= 2 : Ans1Idx = 0;
     Ans2Idx >= 2 ? Ans2Idx -= 2 : Ans2Idx = 1;
     Questidx == 0 ? Questidx = 0 : Questidx -= 1;
-    answer1 = qusestionAnswers[Ans1Idx];
-    answer2 = qusestionAnswers[Ans2Idx];
-    __QusetMent = QusetMent[Questidx];
+    answer1 = qusestionAnswerString[Ans1Idx];
+    answer2 = qusestionAnswerString[Ans2Idx];
+    __QusetMent = questionString[Questidx];
     setState(() {});
   }
 
@@ -78,7 +78,7 @@ class _MbtiScreenState extends State<MbtiScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SizedBox(
-                    width: QusetMent[Questidx].length > 17 ? 340 : null,
+                    width: questionString[Questidx].length > 17 ? 340 : null,
                     child: Flexible(
                       child: RichText(
                         strutStyle: const StrutStyle(
@@ -86,7 +86,7 @@ class _MbtiScreenState extends State<MbtiScreen> {
                         ),
                         maxLines: 5,
                         text: TextSpan(
-                          text: QusetMent[Questidx],
+                          text: questionString[Questidx],
                           style: const TextStyle(
                             color: Colors.white,
                             fontSize: Sizes.size28,

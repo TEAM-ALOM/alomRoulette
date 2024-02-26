@@ -1,4 +1,4 @@
-final List<String> qusestionAnswers = [
+final List<String> qusestionAnswerString = [
   '어플을 직접 만들래요!',
   '디자인을 하고 싶어요!',
   '네! 어느 정도는 알아요',

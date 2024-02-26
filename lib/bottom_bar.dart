@@ -2,7 +2,6 @@ import 'package:animated_notch_bottom_bar/animated_notch_bottom_bar/animated_not
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:material_symbols_icons/symbols.dart';
-import 'package:sedong_mbti/view/mbti/mbti_screen.dart';
 import 'package:sedong_mbti/view/new_mbti.dart';
 import 'package:sedong_mbti/view/roulette.dart';
 import 'package:sedong_mbti/view/web_view.dart';

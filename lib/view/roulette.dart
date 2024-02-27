@@ -33,18 +33,18 @@ class _RouletteScreenState extends State<RouletteScreen> {
               "룰렛을 돌려보세요!",
               style: TextStyle(
                   color: Colors.white,
-                  fontSize: 40,
+                  fontSize: 60,
                   fontWeight: FontWeight.bold),
             ),
             const SizedBox(
-              height: 30,
+              height: 100,
             ),
             SpinningWheel(
               image: Image.asset('assets/images/roulette-8-300.png'),
-              width: 310,
-              height: 310,
+              width: 600,
+              height: 600,
               initialSpinAngle: _generateRandomAngle(),
-              spinResistance: 0.3,
+              spinResistance: 0.4,
               canInteractWhileSpinning: false,
               dividers: 8,
               onUpdate: _dividerController.add,

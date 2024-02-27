@@ -101,7 +101,7 @@ Page resource error:
           ? Center(
               child: LoadingAnimationWidget.inkDrop(
                 color: Colors.blue,
-                size: 50,
+                size: 40,
               ),
             )
           : WebViewWidget(controller: _controller),

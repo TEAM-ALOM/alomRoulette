@@ -48,6 +48,7 @@ dependencies:
   loading_animation_widget: ^1.2.0+4
   auto_size_text: ^3.0.0
   animated_size_and_fade: ^4.0.0
+  animated_flip_counter: ^0.2.6
 
 
 

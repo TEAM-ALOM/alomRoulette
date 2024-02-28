@@ -2,6 +2,7 @@ import 'package:animated_notch_bottom_bar/animated_notch_bottom_bar/animated_not
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:material_symbols_icons/symbols.dart';
+import 'package:sedong_mbti/view/money_panel.dart';
 import 'package:sedong_mbti/view/new_mbti.dart';
 import 'package:sedong_mbti/view/roulette.dart';
 import 'package:sedong_mbti/view/web_view.dart';
@@ -14,7 +15,7 @@ class CustomBottomBar extends StatefulWidget {
 }
 
 class _CustomBottomBarState extends State<CustomBottomBar> {
-  int maxCount = 4;
+  int maxCount = 5;
 
   /// Controller to handle PageView and also handles initial page
   final _pageController = PageController(initialPage: 0);
@@ -32,6 +33,7 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
   final List<Widget> bottomBarPages = [
     const NotionWebView(),
     const RouletteScreen(),
+    const MoneyPanelWidget(),
     const NewMbtiView(),
   ];
 
@@ -44,9 +46,9 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
               color: Colors.white,
               showLabel: false,
               shadowElevation: 5,
-              kBottomRadius: 28.0,
+              kBottomRadius: 10.0,
               removeMargins: false,
-              bottomBarWidth: 500,
+              bottomBarWidth: 700,
               durationInMilliSeconds: 100,
               bottomBarItems: const [
                 BottomBarItem(
@@ -70,6 +72,17 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
                     color: Colors.blueAccent,
                   ),
                   itemLabel: 'Page 2',
+                ),
+                BottomBarItem(
+                  inActiveItem: FaIcon(
+                    Symbols.casino,
+                    color: Colors.grey,
+                  ),
+                  activeItem: FaIcon(
+                    Symbols.casino,
+                    color: Colors.blueAccent,
+                  ),
+                  itemLabel: 'Page 4',
                 ),
                 BottomBarItem(
                   inActiveItem: FaIcon(

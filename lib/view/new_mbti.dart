@@ -78,118 +78,114 @@ class _NewMbtiViewState extends State<NewMbtiView> {
               ),
               AnimatedSizeAndFade(
                 child: toggle
-                    ? Column(
-                        children: [
-                          ElevatedButton(
-                            style: raisedButtonStyleReverse,
-                            onPressed: () {
-                              setState(() {
-                                toggle = !toggle;
-                              });
-                            },
-                            child: const Text("시작하기"),
-                          )
-                        ],
-                      )
-                    : Column(
-                        children: [
-                          Card(
-                            color: Colors.primaries[5],
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 80, vertical: 100),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  AnimatedSizeAndFade(
-                                    child: isImageVisible
-                                        ? const Image(
-                                            image: AssetImage(
-                                                "assets/images/adobe-express-qr-code.png"),
-                                          )
-                                        : const SizedBox(),
-                                  ),
-                                  AutoSizeText(
-                                    question[calculateResult].keys.first,
-                                    maxLines: 1,
-                                    style: const TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 30),
-                                  ),
-                                  const SizedBox(
-                                    height: 30,
-                                  ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceAround,
-                                    children: [
-                                      ElevatedButton.icon(
-                                        style: raisedButtonStyle,
-                                        onPressed: () {
-                                          setState(() {
-                                            if (calculateResult +
+                    ? const SizedBox()
+                    : SizedBox(
+                        height: 700,
+                        width: 500,
+                        child: Column(
+                          children: [
+                            Card(
+                              color: Colors.primaries[5],
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 10, vertical: 100),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    AnimatedSizeAndFade(
+                                      child: isImageVisible
+                                          ? const Image(
+                                              image: AssetImage(
+                                                  "assets/images/adobe-express-qr-code.png"),
+                                            )
+                                          : const SizedBox(),
+                                    ),
+                                    AutoSizeText(
+                                      question[calculateResult].keys.first,
+                                      maxLines: 1,
+                                      style: const TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 30),
+                                    ),
+                                    const SizedBox(
+                                      height: 30,
+                                    ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceAround,
+                                      children: [
+                                        ElevatedButton.icon(
+                                          style: raisedButtonStyle,
+                                          onPressed: () {
+                                            setState(() {
+                                              if (calculateResult +
+                                                      question[calculateResult]
+                                                          .values
+                                                          .first[0] <
+                                                  10) {
+                                                calculateResult +=
                                                     question[calculateResult]
                                                         .values
-                                                        .first[0] <
-                                                10) {
-                                              calculateResult +=
-                                                  question[calculateResult]
-                                                      .values
-                                                      .first[0];
-                                            } else {
-                                              isImageVisible = true;
-                                            }
-                                          });
-                                        },
-                                        icon: const Icon(Icons.check),
-                                        label: const Text("네!"),
-                                      ),
-                                      ElevatedButton.icon(
-                                        style: raisedButtonStyle,
-                                        onPressed: () {
-                                          setState(() {
-                                            if (calculateResult +
+                                                        .first[0];
+                                              } else {
+                                                isImageVisible = true;
+                                              }
+                                            });
+                                          },
+                                          icon: const Icon(Icons.check),
+                                          label: const Text("네!"),
+                                        ),
+                                        ElevatedButton.icon(
+                                          style: raisedButtonStyle,
+                                          onPressed: () {
+                                            setState(() {
+                                              if (calculateResult +
+                                                      question[calculateResult]
+                                                          .values
+                                                          .first[1] <
+                                                  10) {
+                                                calculateResult +=
                                                     question[calculateResult]
                                                         .values
-                                                        .first[1] <
-                                                10) {
-                                              calculateResult +=
-                                                  question[calculateResult]
-                                                      .values
-                                                      .first[1];
-                                            } else {
-                                              isImageVisible = true;
-                                            }
-                                          });
-                                        },
-                                        icon: const Icon(Icons.cancel_outlined),
-                                        label: const Text("아니오"),
-                                      ),
-                                    ],
-                                  ),
-                                ],
+                                                        .first[1];
+                                              } else {
+                                                isImageVisible = true;
+                                              }
+                                            });
+                                          },
+                                          icon:
+                                              const Icon(Icons.cancel_outlined),
+                                          label: const Text("아니오"),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
-                          ),
-                          const SizedBox(
-                            height: 80,
-                          ),
-                          ElevatedButton.icon(
-                            style: raisedButtonStyleReverse,
-                            onPressed: () {
-                              setState(() {
-                                toggle = !toggle;
-                                isImageVisible = false;
-                                calculateResult = 0;
-                              });
-                            },
-                            icon: const Icon(Icons.refresh),
-                            label: const Text(
-                              "다시하기",
-                            ),
-                          ),
-                        ],
+                          ],
+                        ),
+                      ),
+              ),
+              ElevatedButton.icon(
+                style: raisedButtonStyleReverse,
+                onPressed: () {
+                  setState(() {
+                    toggle = !toggle;
+                    isImageVisible = false;
+                    calculateResult = 0;
+                  });
+                },
+                icon: toggle
+                    ? const Icon(Icons.check)
+                    : const Icon(Icons.refresh),
+                label: toggle
+                    ? const Text(
+                        "시작하기",
+                      )
+                    : const Text(
+                        "다시하기",
                       ),
               ),
             ],

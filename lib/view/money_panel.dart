@@ -4,6 +4,8 @@ import 'dart:math';
 import 'package:animated_flip_counter/animated_flip_counter.dart';
 import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:material_symbols_icons/symbols.dart';
 
 class MoneyPanelWidget extends StatefulWidget {
   const MoneyPanelWidget({super.key});
@@ -17,6 +19,7 @@ class _MoneyPanelWidgetState extends State<MoneyPanelWidget> {
   int moneyState = 0;
   int _seconds = 0;
   bool _isRunning = false;
+  Duration _duration = const Duration(milliseconds: 1000);
   late Timer _timer;
   @override
   void initState() {
@@ -33,12 +36,14 @@ class _MoneyPanelWidgetState extends State<MoneyPanelWidget> {
   }
 
   void _startTimer() {
+    _duration = const Duration(microseconds: 100);
+    _controllerCenter.stop();
     _isRunning = true;
     _seconds = 0;
     _timer = Timer.periodic(const Duration(microseconds: 3000), (timer) {
       setState(() {
-        // _seconds = Random().nextInt(1000);
-        _seconds += 111;
+        _seconds = Random().nextInt(1000);
+        // _seconds += 111;
         if (_seconds >= 1000) {
           _seconds = 0;
         }
@@ -48,11 +53,9 @@ class _MoneyPanelWidgetState extends State<MoneyPanelWidget> {
 
   void _stopTimer() {
     _isRunning = false;
+    _duration = const Duration(milliseconds: 500);
+    _seconds = Random().nextInt(1000);
     _controllerCenter.play();
-
-    setState(() {
-      // _seconds = Random().nextInt(1000);
-    });
 
     _timer.cancel();
   }
@@ -88,63 +91,87 @@ class _MoneyPanelWidgetState extends State<MoneyPanelWidget> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Row(
-              children: [
-                AnimatedFlipCounter(
-                  curve: Curves.ease,
-                  duration: const Duration(milliseconds: 400),
-                  value: _seconds ~/ 100, // pass in a value like 2014
-                  textStyle: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 180,
-                  ),
-                ),
-                AnimatedFlipCounter(
-                  duration: const Duration(milliseconds: 600),
-                  value: (_seconds ~/ 10) % 10, // pass in a value like 2014
-                  textStyle: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 180,
-                  ),
-                ),
-                AnimatedFlipCounter(
-                  duration: const Duration(milliseconds: 1000),
-                  value: _seconds % 10, // pass in a value like 2014
-                  textStyle: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 180,
-                  ),
-                ),
-              ],
+            Transform.translate(
+              offset: const Offset(0, 150),
+              child: ConfettiWidget(
+                maxBlastForce: 31,
+                minBlastForce: 30,
+                emissionFrequency: 0, // how often it should emit
+                numberOfParticles: 1500, // number of particles to emit
+                gravity: 0.05, // grav
+                confettiController: _controllerCenter,
+                blastDirectionality: BlastDirectionality.explosive,
+                colors: const [
+                  Colors.green,
+                  Colors.blue,
+                  Colors.pink,
+                  Colors.orange,
+                  Colors.purple
+                ],
+                createParticlePath: drawStar,
+              ),
+            ),
+            AnimatedFlipCounter(
+              duration: _duration,
+              wholeDigits: 3,
+              value: _seconds,
+              textStyle: const TextStyle(
+                fontSize: 300,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            // Row(
+            //   children: [
+            //     AnimatedFlipCounter(
+            //       curve: Curves.ease,
+            //       duration: const Duration(milliseconds: 400),
+            //       value: _seconds ~/ 100, // pass in a value like 2014
+            //       textStyle: const TextStyle(
+            //         fontWeight: FontWeight.bold,
+            //         fontSize: 180,
+            //       ),
+            //     ),
+            //     AnimatedFlipCounter(
+            //       duration: const Duration(milliseconds: 600),
+            //       value: (_seconds ~/ 10) % 10, // pass in a value like 2014
+            //       textStyle: const TextStyle(
+            //         fontWeight: FontWeight.bold,
+            //         fontSize: 180,
+            //       ),
+            //     ),
+            //     AnimatedFlipCounter(
+            //       duration: const Duration(milliseconds: 1000),
+            //       value: _seconds % 10, // pass in a value like 2014
+            //       textStyle: const TextStyle(
+            //         fontWeight: FontWeight.bold,
+            //         fontSize: 180,
+            //       ),
+            //     ),
+            //   ],
+            // ),
+            const SizedBox(height: 16),
+            Text(
+              _isRunning ? "버튼을 눌러 멈춰주세요" : "버튼을 눌러 숫자를 뽑아주세요",
+              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 16),
-            ConfettiWidget(
-              emissionFrequency: 0, // how often it should emit
-              numberOfParticles: 200, // number of particles to emit
-              gravity: 0.05, // grav
-              confettiController: _controllerCenter,
-              blastDirectionality: BlastDirectionality.explosive,
-
-              colors: const [
-                Colors.green,
-                Colors.blue,
-                Colors.pink,
-                Colors.orange,
-                Colors.purple
-              ],
-              createParticlePath: drawStar,
-            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 ElevatedButton(
                   onPressed: _isRunning ? _stopTimer : _startTimer,
-                  style: const ButtonStyle(
-                    textStyle: MaterialStatePropertyAll(
-                      TextStyle(fontSize: 100),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.blue,
+                    foregroundColor: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
                     ),
                   ),
-                  child: _isRunning ? const Text('Stop') : const Text('Start'),
+                  child: const FaIcon(
+                    Symbols.casino,
+                    size: 100,
+                  ),
+                  // label: _isRunning ? const Text('멈춰!') : const Text(''),
                 ),
               ],
             ),

@@ -49,6 +49,7 @@ dependencies:
   auto_size_text: ^3.0.0
   animated_size_and_fade: ^4.0.0
   animated_flip_counter: ^0.2.6
+  confetti: ^0.7.0
 
 
 
